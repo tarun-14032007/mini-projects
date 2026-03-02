@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feedback Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Course Feedback Form</h2>
+
+    <form id="feedbackForm">
+
+        <label>Name</label>
+        <input type="text" id="name">
+        <span class="error" id="nameError"></span>
+
+        <label>Register Number</label>
+        <input type="text" id="regno">
+        <span class="error" id="regError"></span>
+
+        <label>Course</label>
+        <select id="course">
+            <option value="">Select Course</option>
+            <option value="Web Programming">Web Programming</option>
+            <option value="Data Structures">Data Structures</option>
+            <option value="AI & ML">AI & ML</option>
+        </select>
+        <span class="error" id="courseError"></span>
+
+        <label>Rating</label>
+
+        <div class="rating-group">
+            <label><input type="radio" name="rating" value="Excellent"> Excellent</label>
+            <label><input type="radio" name="rating" value="Very Good"> Very Good</label>
+            <label><input type="radio" name="rating" value="Good"> Good</label>
+            <label><input type="radio" name="rating" value="Average"> Average</label>
+            <label><input type="radio" name="rating" value="Poor"> Poor</label>
+        </div>
+
+<span class="error" id="ratingError"></span>
+
+        <label>Comments</label>
+        <textarea id="comments"></textarea>
+        <span class="error" id="commentError"></span>
+
+        <br><br>
+
+        <button type="button" onclick="validateForm()">Submit</button>
+
+    </form>
+
+    <p id="successMessage"></p>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
