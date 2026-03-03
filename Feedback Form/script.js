@@ -36,6 +36,7 @@ function validateForm() {
 
     if(!ratingSelected) {
         document.getElementById("ratingError").innerHTML = "Select rating";
+        rating[0].focus();
         return;
     }
 
