@@ -55,6 +55,8 @@ function resetForm(){
     document.getElementById("total").innerHTML="-";
     document.getElementById("average").innerHTML="-";
     document.getElementById("grade").innerHTML="-";
+
+    document.getElementById("grade").style.color="black";
 }
 
 function hoverEffect(){
