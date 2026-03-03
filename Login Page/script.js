@@ -2,30 +2,45 @@ var attempt = 3;
 
 function checkLogin() {
 
-    var user = document.getElementById("username").value;
-    var pass = document.getElementById("password").value;
+    if (attempt <= 0) {
+        return;
+    }
+
+    var user = document.getElementById("username").value.trim();
+    var pass = document.getElementById("password").value.trim();
 
     var correctUser = "admin";
     var correctPass = "1234";
 
-    if(user == correctUser && pass == correctPass) {
+    var message = document.getElementById("message");
+    var attemptsText = document.getElementById("attempts");
+    var button = document.getElementById("loginBtn");
 
-        document.getElementById("message").innerHTML = "Login Successful!";
-        document.getElementById("message").style.color = "green";
+    if (user === "" || pass === "") {
+        message.innerHTML = "Please enter Username and Password";
+        message.style.color = "red";
+        return;
+    }
+
+    if (user === correctUser && pass === correctPass) {
+
+        message.innerHTML = "Login Successful!";
+        message.style.color = "green";
+        attemptsText.innerHTML = "";
+        button.disabled = true;
 
     } else {
 
         attempt--;
 
-        document.getElementById("message").innerHTML = "Invalid Username or Password";
-        document.getElementById("message").style.color = "red";
+        message.innerHTML = "Invalid Username or Password";
+        message.style.color = "red";
 
-        document.getElementById("attempts").innerHTML =
-            "Attempts remaining: " + attempt;
-
-        if(attempt == 0) {
-
-            document.getElementById("loginBtn").disabled = true;
+        if (attempt > 0) {
+            attemptsText.innerHTML = "Attempts remaining: " + attempt;
+        } else {
+            attemptsText.innerHTML = "Attempts remaining: 0";
+            button.disabled = true;
             alert("You have used all 3 attempts. Login disabled.");
         }
     }
